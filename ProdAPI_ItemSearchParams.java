@@ -1,0 +1,37 @@
+package com.example.sasidhar.tanishka;
+
+/**
+ * Created by sasidhar on 16/1/16.
+ */
+public enum ProdAPI_ItemSearchParams {
+    ACTOR,
+    ARSTIST,
+    AUDIENCERATING,
+    AUTHOR,
+    AVAILABILITY,
+    BRAND,
+    BROWSENODE,
+    COMPOSER,
+    CONDITION,
+    CONDUCTOR,
+    DIRECTOR,
+    INCLUDEREVIEWSSUMMARY,
+    ITEMPAGE,
+    KEYWORDS,
+    MANUFACTURER,
+    MAXIMUMPRICE,
+    MERCHANTID,
+    MINIMUMPRICE,
+    MINPERCENTAGEOFF,
+    ORCHESTRA,
+    POWER,
+    PUBLISHER,
+    RELATEDITEMPAGE,
+    RELATIONSHIPTYPE,
+    SEARCHINDEX,
+    SORT,
+    TITLE,
+    TRUNCATEREVIEWSAT,
+    VARIATIONPAGE,
+    RESPONSEGROUP,
+}
