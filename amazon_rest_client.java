@@ -137,7 +137,7 @@ public class amazon_rest_client {
         } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
-
+//tedy
         String hmac = hmac(toSign);
         System.out.println(hmac);
         String sig =  EncodeParam(hmac);
