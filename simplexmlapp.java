@@ -11,12 +11,12 @@ import java.io.StringReader;
  * Created by sasidhar on 10/1/16.
  */
 public class simplexmlapp {
-    public void main() throws XmlPullParserException, IOException {
+    public void main( StringReader str) throws XmlPullParserException, IOException {
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
         factory.setNamespaceAware(true);
         XmlPullParser xapp = factory.newPullParser();
 
-        xapp.setInput( new StringReader("<foo>Hello World!</foo>"));
+        xapp.setInput( str );
 
         int event_type = xapp.getEventType();
 
@@ -27,6 +27,7 @@ public class simplexmlapp {
                     break;
                 case XmlPullParser.START_TAG:
                     System.out.println("Start TAG");
+                    System.out.println(xapp.getText());
                     break;
                 case XmlPullParser.END_TAG:
                     System.out.println("End TAG");

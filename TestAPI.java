@@ -1,5 +1,9 @@
 package com.example.sasidhar.tanishka;
 
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+import java.io.StringReader;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.FieldPosition;
@@ -14,11 +18,21 @@ import java.util.TimeZone;
 public class TestAPI {
 
     public void testapi() throws ProdAPI_ItemSearchException {
+
         ProdAPI_ItemSearch itemSearch = new ProdAPI_ItemSearch();
+        simplexmlapp XAPP = new simplexmlapp();
+
         itemSearch.set_searchindex("Apparel");
         itemSearch.set_ResponseGroup("ItemAttributes");
         itemSearch.set_ResponseGroup("Images");
-        System.out.println(itemSearch.get());
+        try {
+            XAPP.main(new StringReader(itemSearch.get()));
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     String get_timestamp(){
