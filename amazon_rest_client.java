@@ -105,6 +105,7 @@ public class amazon_rest_client {
 //      Add timestamp for the url
         Request request = new Request.Builder().url(sign()).build();
         Response response = client.newCall(request).execute();
+        System.out.println(request.toString());
         return response.body().string();
     }
 
@@ -116,7 +117,6 @@ public class amazon_rest_client {
         params.put("AssociateTag", AmazonConfig.AWS_ASSOCIATEID);
         params.put("Version", AmazonConfig.VERSION);
         params.put("Timestamp", timestamp());
-        params.put("Keywords","test");
     // End of configurable parameters
 
         SortedMap<String, String> sortedParamMap =
@@ -127,7 +127,6 @@ public class amazon_rest_client {
                 AmazonConfig.REQUEST_METHOD+ "\n"
                         + AmazonConfig.AFFLIATE_URL + "\n" + "/onca/xml" + "\n"
                         + canonicalQS;
-        System.out.println(toSign);
         try {
             SignedRequestsHelper();
         } catch (UnsupportedEncodingException e) {
@@ -139,11 +138,8 @@ public class amazon_rest_client {
         }
 //tedy
         String hmac = hmac(toSign);
-        System.out.println(hmac);
         String sig =  EncodeParam(hmac);
-        System.out.println(sig);
         String url = "http://" +AmazonConfig.AFFLIATE_URL  + "/onca/xml?" + canonicalQS + "&Signature=" + sig;
-        System.out.println(url);
         return url;
     }
 

@@ -1,6 +1,8 @@
 package com.example.sasidhar.tanishka;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
@@ -9,26 +11,56 @@ import okhttp3.Response;
  * Created by sasidhar on 16/1/16.
  */
 public class ProdAPI_ItemSearch {
+//  List of items
+    ArrayList<amazonitem> amazonitems = new ArrayList<amazonitem>();
 //  Response
     Response OKResponse;
-//  HashMap to store the variabels
+
+    public HashMap<String, String> getParamsAPI() {
+        return paramsAPI;
+    }
+
+    public void setParamsAPI(HashMap<String, String> paramsAPI) {
+        this.paramsAPI = paramsAPI;
+    }
+
+    //  HashMap to store the variabels
     private HashMap<String,String> paramsAPI;
     private OkHttpClient client;
 //  Request parameters permissible for Item search
     private static final  String OPERATION = "ItemSearch";
+    private static final  String RESPONSEGROUP = "ResponseGroup";
     private static final  String SEARCHINDEX = "SearchIndex";
-    private static final  String KEYWORDS = "Keywords";
-    private static final  String CONDITION = "Condition";
     private static final  String NEW = "New";
     private static final  String IDTYPE = "IdType";
     private static final  String INCLUDEREVIEWSSUMMARY = "IncludeReviewsSummary";
     private static final  String ITEMID = "ItemId";
+    private static final  String ACTOR = "Actor";
+    private static final  String ARTIST = "Artist";
+    private static final  String AUDIEMCERATING = "AudienceRating";
+    private static final  String AUTHOR = "Author";
+    private static final  String AVAILABILITY = "Availability";
+    private static final  String BRAND = "Brand";
+    private static final  String BROWSENODE = "BrowseNode";
+    private static final  String COMPOSER = "Composer";
+    private static final  String CONDITION = "Condition";
+    private static final  String CONDUCTOR = "Conductor";
+    private static final  String DIRECTOR = "Director";
+    private static final  String ITEMPAGE = "ItemPage";
+    private static final  String KEYWORDS = "Keywords";
+    private static final  String MANUFACTURER = "Manufacturer";
+    private static final  String MAXIMUMPRICE = "MaximumPrice";
     private static final  String MERCHANTID = "MerchantId";
+    private static final  String MINIMUNPERCENTAGEOF = "MinPercentageOff";
+    private static final  String ORCHESTRA = "Orchestra";
+    private static final  String POWER = "Power";
+    private static final  String PUBLISHER = "Publisher";
     private static final  String RELATEDITEMPAGE = "RelatedItemPage";
     private static final  String RELATIONSHIPTYPE = "RelationshipType";
+    private static final  String SORT = "Sort";
+    private static final  String TITLE = "Title";
     private static final  String TRUNCATEREVIEWSAT = "TruncateReviewsAt";
     private static final  String VARIATIONPAGE = "VariationPage";
-    private static final  String RESPONSEGROUP = "ResponseGroup";
 //**************************************************************************************//
 //  Set Condition.If param is blank then set the default to New. If not , check the values
 //  Against valid allowed condition types
@@ -92,6 +124,126 @@ public class ProdAPI_ItemSearch {
 // Set the search index.If one of the itemid is ASIN , then seachindices need to be remobed
     public void set_searchindex(String searchindex){
         add_parameter(SEARCHINDEX, searchindex);
+    }
+//**************************************************************************************//
+    public void set_actor(String actor){
+        if (actor == null ){ return;}
+        add_parameter(ACTOR , actor);
+    }
+//**************************************************************************************//
+    public void set_artist(String artist){
+        if (artist == null ){ return;}
+        add_parameter(ARTIST, artist);
+    }
+//**************************************************************************************//
+    public void set_audiencerating(String audiencerating){
+        if (audiencerating == null ){ return;}else {
+            //Not required
+        }
+        add_parameter(AUDIEMCERATING, audiencerating);
+    }
+//**************************************************************************************//
+    public void set_author(String author){
+        if (author == null ){ return;}
+        add_parameter(AUTHOR, author);
+    }
+//**************************************************************************************//
+    public void set_availability(boolean availability){
+        if(availability)
+            {
+                add_parameter(AVAILABILITY, "Available");
+            }
+        else{
+            }
+      }
+//**************************************************************************************//
+    public void set_brand(String brand){
+        if (brand == null ){ return;}
+        add_parameter(BRAND, brand);
+    }
+//**************************************************************************************//
+    public void set_browsenode(String browsenode){
+        if (browsenode == null ){ return;}
+        add_parameter(BROWSENODE, browsenode);
+    }
+//**************************************************************************************//
+    public void set_composer(String composer){
+        if (composer == null ){ return;}
+        add_parameter(COMPOSER, composer);
+    }
+//**************************************************************************************//
+    public void set_condition(String condition){
+        if (condition == null ){add_parameter(CONDITION, "New"); }
+        add_parameter(CONDITION, condition);
+    }
+//**************************************************************************************//
+    public void set_conductor(String conductor){
+        if (conductor == null ){ return;}
+        add_parameter(CONDUCTOR, conductor);
+    }
+//**************************************************************************************//
+    public void set_director(String director){
+        if (director == null ){ return;}
+        add_parameter(DIRECTOR, director);
+    }
+//**************************************************************************************//
+    public void set_includesreviewsummary(boolean includesreviewsummary){
+         add_parameter(INCLUDEREVIEWSSUMMARY, String.valueOf(includesreviewsummary));
+    }
+//**************************************************************************************//
+    public void set_itempage(String itempage){
+        if (itempage == null ){ return;}
+        add_parameter(ITEMPAGE, itempage);
+    }
+//**************************************************************************************//
+    public void set_keywords(String keywords){
+        if (keywords == null ){ return;}
+        add_parameter(KEYWORDS, keywords);
+    }
+//**************************************************************************************//
+    public void set_manufacturer(String manufacturer){
+        if (manufacturer == null ){ return;}
+        add_parameter(MANUFACTURER, manufacturer);
+    }
+//**************************************************************************************//
+    public void set_maximumprice(String maximumprice){
+        if (maximumprice == null ){ return;}
+        add_parameter(MAXIMUMPRICE, maximumprice);
+    }
+//**************************************************************************************//
+    public void set_minpercentageof(String minpercentageof){
+        if (minpercentageof == null ){ return;}
+        add_parameter(MINIMUNPERCENTAGEOF, minpercentageof);
+    }
+//**************************************************************************************//
+    public void set_orchestra(String orchestra){
+        if (orchestra == null ){ return;}
+        add_parameter(ORCHESTRA, orchestra);
+    }
+//**************************************************************************************//
+    public void set_power(String power){
+        if (power == null ){ return;}
+        add_parameter(POWER, power);
+    }
+//**************************************************************************************//
+    public void set_publisher(String publisher){
+        if (publisher == null ){ return;}
+        add_parameter(PUBLISHER, publisher);
+    }
+//**************************************************************************************//
+    public void set_relateditempage(String relateditempage){
+        if (relateditempage == null ){ return;}
+        add_parameter(RELATEDITEMPAGE, relateditempage);
+    }
+//**************************************************************************************//
+    public void set_sort(String sort){
+        if (sort == null ){ return;}
+        add_parameter(SORT, sort);
+    }
+//**************************************************************************************//
+    public void set_title(String title){
+        if (title == null ){ return;}
+        add_parameter(TITLE, title);
     }
 //**************************************************************************************//
 // Set the TruncateReviewsAt. If its less than zero ...set to zero. 0 returns full review

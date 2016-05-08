@@ -16,5 +16,6 @@ public class AmazonConfig {
 //  This remains GET for all calls
     public static final String REQUEST_METHOD = "GET";
     public static final String VERSION = "2011-08-01";
+    public static final String MONGODB = "test";
 
 }
